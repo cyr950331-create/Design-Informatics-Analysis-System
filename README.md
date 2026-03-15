@@ -150,6 +150,7 @@ Determined the most influential design factor
 All without coding.
 
 💻 Installation
+
 Option 1 – Python Package
 
 Requirements
@@ -177,6 +178,7 @@ git clone https://github.com/cyr950331-create/Design-Informatics-Analysis-System
 Run main module:
 
 python main.py
+
 Option 2 – Desktop Application (Recommended for Non-Programmers)
 
 Supported OS: Windows 10 / 11
