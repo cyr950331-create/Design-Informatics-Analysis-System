@@ -165,41 +165,43 @@ Data Input (CSV/Excel) → Data Cleaning → Statistical Engine → Report Gener
   
 ## Architecture
 
-DIAS/
-├── main.py # Application entry point & data-cleaning UI
-├── requirements.txt # Python dependencies
-└── Source/
-├── Toolkit.py # Hub that registers all 77 analysis modules
-├── Descriptive_Statistics.py
-├── Pearson_Correlation_Analysis.py
-├── Independent_Samples_T_Test_Analysis.py
-└── ... (77 modules total)
+    ```mermaid  
+    DIAS/
+    ├── main.py # Application entry point & data-cleaning UI
+    ├── requirements.txt # Python dependencies
+    └── Source/
+    ├── Toolkit.py # Hub that registers all 77 analysis modules
+    ├── Descriptive_Statistics.py
+    ├── Pearson_Correlation_Analysis.py
+    ├── Independent_Samples_T_Test_Analysis.py
+    └── ... (77 modules total)
 
-```mermaid  
-graph LR  
-    A["main.py"] -->|"launches"| B["Toolkit.py"]  
-    B -->|"opens"| C["Analysis Module"]  
-    C -->|"reads"| D["CSV / Excel"]  
-    C -->|"writes"| E[".docx Report"]  
-    C -->|"plots"| F["Matplotlib Chart"]
+    ```mermaid  
+    graph LR  
+        A["main.py"] -->|"launches"| B["Toolkit.py"]  
+        B -->|"opens"| C["Analysis Module"]  
+        C -->|"reads"| D["CSV / Excel"]  
+        C -->|"writes"| E[".docx Report"]  
+        C -->|"plots"| F["Matplotlib Chart"]
 
-main.py — launches the main window, handles data cleaning, and provides bilingual language switching.
-Source/Toolkit.py — the hub that registers every analysis module in and renders them as searchable buttons in the GUI.MODULE_MAP
-Source/*.py — each file is a self-contained analysis module with its own ttkbootstrap UI, statistical logic, and report generation.
+- main.py — launches the main window, handles data cleaning, and provides bilingual language switching.
+- Source/Toolkit.py — the hub that registers every analysis module in and renders them as searchable buttons in the GUI.MODULE_MAP
+- Source/*.py — each file is a self-contained analysis module with its own ttkbootstrap UI, statistical logic, and report generation.
 
-Getting Started
+
+## Getting Started
 Option 1 — Run from source (Python)
 Prerequisites: Python 3.12
 
-# Clone the repository  
-git clone https://github.com/cyr950331-create/Design-Informatics-Analysis-System.git  
-cd Design-Informatics-Analysis-System  
-  
-# Install dependencies  
-pip install -r requirements.txt  
-  
-# Launch  
-python main.py
+    # Clone the repository  
+    git clone https://github.com/cyr950331-create/Design-Informatics-Analysis-System.git  
+    cd Design-Informatics-Analysis-System  
+      
+    # Install dependencies  
+    pip install -r requirements.txt  
+      
+    # Launch  
+    python main.py
 
 Option 2 — Desktop executable (Windows)
 No Python installation required.
@@ -209,43 +211,44 @@ Double-click to launch.DIAS.exe
 Follow the built-in user manual.
 Supported OS: Windows 10 / 11
 
-Usage
-Open a dataset — load a or file from the main window..csv.xlsx
-Clean data — use the built-in data-cleaning dialog to handle missing values and normalize column names.
-Select a method — open the Toolkit and pick from 77 analysis methods (searchable, bilingual).
-Run the analysis — DIAS automatically configures parameters, checks assumptions, and runs the test.
-Export results — a Word report and charts are saved to your working directory.
+## Usage
+- Open a dataset — load a or file from the main window..csv.xlsx
+- Clean data — use the built-in data-cleaning dialog to handle missing values and normalize column names.
+- Select a method — open the Toolkit and pick from 77 analysis methods (searchable, bilingual).
+- Run the analysis — DIAS automatically configures parameters, checks assumptions, and runs the test.
+- Export results — a Word report and charts are saved to your working directory.
 
-Resources
-GitHub Repository	https://github.com/cyr950331-create/Design-Informatics-Analysis-System
-Desktop App Download	[OneDrive](https://1drv.ms/u/c/56791b21f8f8c84a/IQAmT6K5BrNUQoB1l56YLDz-ASQ3cBWppZEmBcyexUCMz_U?e=18fNCL)
-Demo Video	[YouTube](https://www.youtube.com/watch?v=cFtxfOEURPE)
+## Resources
+- GitHub Repository	https://github.com/cyr950331-create/Design-Informatics-Analysis-System
+- Desktop App Download	[OneDrive](https://1drv.ms/u/c/56791b21f8f8c84a/IQAmT6K5BrNUQoB1l56YLDz-ASQ3cBWppZEmBcyexUCMz_U?e=18fNCL)
+- Demo Video	[YouTube](https://www.youtube.com/watch?v=cFtxfOEURPE)
 
-Tech Stack
-Layer	               Libraries
-GUI	                 ttkbootstrap 1.12
-Data	               Pandas 2.2, NumPy 2.2, openpyxl, xlrd
-Statistics	         SciPy 1.16, Statsmodels 0.14, pingouin 0.5, factor-analyzer
-Machine Learning	   Scikit-learn 1.7
-Visualization	       Matplotlib 3.10, Seaborn 0.13
-Reports	             python-docx 1.2
-Optimization	       PuLP 3.1, pyDEA 1.6
-Packaging	           PyInstaller 6.16, Nuitka 2.7
+## Tech Stack
+| Layer | Libraries |  
+|--------|----------|  
+| GUI | ttkbootstrap 1.12 |
+| Data | Pandas 2.2, NumPy 2.2, openpyxl, xlrd | 
+| Statistics | SciPy 1.16, Statsmodels 0.14, pingouin 0.5, factor-analyzer |
+| Machine Learning | Scikit-learn 1.7 |
+| Visualization | Matplotlib 3.10, Seaborn 0.13 |
+| Reports | python-docx 1.2 |
+| Optimization | PuLP 3.1, pyDEA 1.6 |
+| Packaging | PyInstaller 6.16, Nuitka 2.7 |     
 
-Contributing
+## Contributing
 Contributions are welcome! To add a new analysis module:
 
-Create following the pattern of existing modules (ttkbootstrap UI + analysis logic + report generation).Source/Your_Method_Analysis.py
-Register it in inside .MODULE_MAPSource/Toolkit.py
-Open a pull request.
+- Create following the pattern of existing modules (ttkbootstrap UI + analysis logic + report generation).Source/Your_Method_Analysis.py
+- Register it in inside .MODULE_MAPSource/Toolkit.py
+- Open a pull request.
 
-License
+## License
 This project is licensed under the MIT License.
 
-Contact
-Yingrui Chi
-University of Camerino
-Email: yingrui.chi@unicam.it
-Email: cyr950331@unicam.it
+## Contact
+- Yingrui Chi
+- University of Camerino
+- Email: yingrui.chi@unicam.it
+- Email: cyr950331@unicam.it
 
 
