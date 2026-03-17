@@ -175,6 +175,7 @@ DIAS/
 ├── Independent_Samples_T_Test_Analysis.py
 └── ... (77 modules total)
 
+```mermaid  
 graph LR  
     A["main.py"] -->|"launches"| B["Toolkit.py"]  
     B -->|"opens"| C["Analysis Module"]  
