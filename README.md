@@ -249,6 +249,6 @@ This project is licensed under the MIT License.
 - Yingrui Chi
 - University of Camerino
 - Email: yingrui.chi@unicam.it
-- Email: cyr950331@unicam.it
+- Email: cyr950331@163.com
 
 
